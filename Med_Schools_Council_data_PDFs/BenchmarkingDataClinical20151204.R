@@ -1,16 +1,14 @@
 library(ggplot2)
 library(RCurl)
 
-# who has the most researchers in the world?
-# download the data
-https://raw.githubusercontent.com/brennanpincardiff/AthenaSWANBenchmarkData/master/medschoolsPDFs/GenderBreakdown.csv
+# what is the gender breakdown for clinical academics
+# lecturers, Readers/SLs, Professors
 
-x <- getURL("https://raw.githubusercontent.com/brennanpincardiff/RforBiochemists/master/data/numberOfResearchersFTEUNdata_Export_20151019_214919785.csv")
+# download the data
+x <- getURL("https://raw.githubusercontent.com/brennanpincardiff/AthenaSWANBenchmarkData/master/Med_Schools_Council_data_PDFs/GenderBreakdown.csv")
 data <- read.csv(text = x)
 
-setwd("/Users/paulbrennan/Documents/AthenaSWANforGithub/AthenaSWANBenchmarkData/medschoolsPDFs")
-
-data <- read.csv("GenderBreakdown.csv")
+# check the data
 str(data)
 data$men <- as.integer(data$men)
 
